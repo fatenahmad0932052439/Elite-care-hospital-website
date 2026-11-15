@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Elite Care Hospital</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#FFFFFF;color:#0F172A;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:.3s ease}
+ul{list-style:none}
+img{display:block;max-width:100%}
+.container{width:90%;max-width:1220px;margin:auto}
+header{background:#FFFFFF;box-shadow:0 4px 18px rgba(10,30,61,.06);border-bottom:2px solid #C5A059;position:sticky;top:0;z-index:999}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:800;color:#0A1E3D}
+.logo i{background:#0A1E3D;color:#FFFFFF;padding:10px;border-radius:10px;border:1.5px solid #C5A059}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-links a:not(.btn){font-weight:600;color:#0A1E3D;font-size:.93rem;padding:6px 4px;position:relative}
+.nav-links a:not(.btn)::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#C5A059;transition:.3s}
+.nav-links a:not(.btn):hover::after,.nav-links a.active::after{width:100%}
+.menu-toggle{display:none;font-size:1.5rem;color:#0A1E3D;background:none;border:none;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;font-weight:600;border:2px solid transparent;cursor:pointer;transition:.3s;font-size:.92rem}
+.btn-navy{background:#0A1E3D;color:#FFFFFF;border-color:#0A1E3D}
+.btn-navy:hover{background:#163666;border-color:#C5A059;transform:translateY(-2px)}
+.page-header{background:linear-gradient(135deg,#061224 0%,#0A1E3D 65%,#142F59 100%);color:#FFFFFF;padding:56px 0;text-align:center}
+.vital-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(197,160,89,.55);padding:5px 14px;border-radius:30px;font-size:.8rem;font-weight:600;margin-bottom:14px}
+.vital-dot{width:8px;height:8px;background:#C5A059;border-radius:50%;position:relative}
+.vital-dot::after{content:'';position:absolute;inset:-4px;border:2px solid #C5A059;border-radius:50%;animation:vitalRing 2s ease-out infinite}
+.page-header h1{font-size:2.3rem;margin-bottom:8px}
+.page-header h1 span{color:#DFC384}
+.page-header p{color:#CBD5E1;max-width:600px;margin:0 auto 18px;font-size:.95rem}
+.ecg-mini{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(197,160,89,.35);border-radius:10px;padding:6px 14px}
+.ecg-mini i{color:#C5A059;animation:heartBeat 1.8s ease-in-out infinite}
+.ecg-line{fill:none;stroke:#C5A059;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:260;stroke-dashoffset:260;animation:ecgDraw 3s linear infinite}
+.section{padding:56px 0;background:#FFFFFF}
+.section-ice{padding:56px 0;background:#F2F6FB;border-top:1px solid #DCE5F0}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.img-frame{border-radius:16px;overflow:hidden;border:2px solid rgba(197,160,89,.55);box-shadow:0 14px 32px rgba(10,30,61,.12);height:320px;background:#0A1E3D;position:relative}
+.img-frame img{width:100%;height:100%;object-fit:cover}
+.jci-pill{position:absolute;bottom:16px;left:16px;background:#FFFFFF;color:#0A1E3D;padding:10px 16px;border-radius:12px;border-left:4px solid #C5A059;box-shadow:0 8px 20px rgba(0,0,0,.18);font-size:.84rem;font-weight:700;animation:floatGentle 4.2s ease-in-out infinite}
+.jci-pill i{color:#A8843B;margin-right:6px}
+.card{background:#FFFFFF;border:1px solid #DCE5F0;border-top:4px solid #0A1E3D;border-radius:14px;padding:26px;box-shadow:0 8px 20px rgba(10,30,61,.05);transition:.3s}
+.card:hover{transform:translateY(-6px);border-top-color:#C5A059}
+.card-icon{width:52px;height:52px;background:#EEF3F9;color:#0A1E3D;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:14px;transition:.3s}
+.card:hover .card-icon{background:#0A1E3D;color:#DFC384}
+.card h3{color:#0A1E3D;margin-bottom:8px;font-size:1.1rem}
+.card p{color:#52637A;font-size:.9rem}
+@keyframes vitalRing{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.3);opacity:0}}
+@keyframes heartBeat{0%,100%{transform:scale(1)}20%{transform:scale(1.2)}35%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes ecgDraw{0%{stroke-dashoffset:260;opacity:.3}15%{opacity:1}85%{opacity:1}100%{stroke-dashoffset:0;opacity:.3}}
+@keyframes floatGentle{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+footer{background:#0A1E3D;color:#FFFFFF;border-top:2px solid #C5A059}
+.footer-main{padding:42px 0 30px}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.footer-col h4{margin-bottom:14px;padding-bottom:8px;position:relative;color:#FFFFFF;font-size:1.03rem}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:34px;height:2px;background:#C5A059}
+.footer-col li{margin-bottom:8px;font-size:.88rem;opacity:.88}
+.footer-col li a:hover{color:#DFC384;padding-left:4px}
+.footer-col li i{color:#C5A059;margin-right:6px}
+.bottom-bar{background:#061224;color:#FFFFFF;font-size:.85rem;padding:14px 0;border-top:1px solid rgba(197,160,89,.35)}
+.bottom-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.hotline i,.hotline strong{color:#DFC384}
+.bottom-links{display:flex;gap:18px;flex-wrap:wrap}
+.bottom-links a{font-weight:600}
+.bottom-links a:hover{color:#DFC384}
+@media(max-width:1024px){.grid-2{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:960px){.menu-toggle{display:block}.nav-links{position:absolute;top:100%;left:0;right:0;background:#FFFFFF;flex-direction:column;padding:20px;box-shadow:0 10px 20px rgba(0,0,0,.1);display:none;gap:12px}.nav-links.active{display:flex}.grid-3{grid-template-columns:1fr}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}.bottom-bar .container{justify-content:center;text-align:center}}
+</style>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="index.html" class="logo"><i class="fa-solid fa-hospital"></i><span>Elite Care</span></a>
+        <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="departments.html">Departments</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="services.html">Services</a>
+            <a href="appointment.html" class="btn btn-navy">Book Appointment</a>
+        </nav>
+    </div>
+</header>
+<section class="page-header">
+    <div class="container">
+        <div class="vital-badge"><span class="vital-dot"></span><span>Serving Patients Since 2006</span></div>
+        <h1>About <span>Elite Care</span> Hospital</h1>
+        <p>Two decades of clinical leadership, medical innovation, and unwavering patient trust</p>
+        <div class="ecg-mini"><i class="fa-solid fa-heart-pulse"></i><svg width="170" height="28" viewBox="0 0 180 30"><path class="ecg-line" d="M0,15 L45,15 L53,10 L61,15 L72,15 L78,22 L85,3 L92,27 L99,13 L105,15 L180,15"/></svg></div>
+    </div>
+</section>
+<section class="section">
+    <div class="container grid-2">
+        <div>
+            <h2 style="color:#0A1E3D;font-size:1.9rem;margin-bottom:14px">Over 20 Years of Medical Excellence</h2>
+            <p style="color:#52637A;margin-bottom:14px">Founded in 2006, <strong>Elite Care Hospital</strong> operates 300 inpatient beds, 14 smart surgical suites, and dedicated cardiac and neurological intensive care units.</p>
+            <p style="color:#52637A;margin-bottom:24px">Every clinical decision is guided by international safety protocols, transparent communication, and compassionate care.</p>
+            <a href="doctors.html" class="btn btn-navy">Meet Our Medical Team <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="img-frame">
+            <img src="https://images.unsplash.com/photo-1587351021355-a479a299d2f9?auto=format&fit=crop&w=1000&q=80" alt="Elite Care Hospital Building">
+            <div class="jci-pill"><i class="fa-solid fa-award"></i> JCI Accredited Hospital (4x Gold Seal)</div>
+        </div>
+    </div>
+</section>
+<section class="section-ice">
+    <div class="container grid-3">
+        <div class="card"><div class="card-icon"><i class="fa-solid fa-eye"></i></div><h3>Our Vision</h3><p>To be the region's most trusted medical center for advanced diagnostics, surgery, and preventive care.</p></div>
+        <div class="card"><div class="card-icon"><i class="fa-solid fa-bullseye"></i></div><h3>Our Mission</h3><p>Delivering safe, evidence-based healthcare led by board-certified specialists and modern technology.</p></div>
+        <div class="card"><div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h3>Core Values</h3><p>Clinical integrity, patient dignity, continuous research, and rapid emergency readiness.</p></div>
+    </div>
+</section>
+<footer>
+    <div class="container footer-main">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>Elite Care Hospital</h4><p style="opacity:.86;font-size:.89rem">A leading medical center delivering trusted diagnostic and surgical care 24/7.</p></div>
+            <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="departments.html">Departments</a></li><li><a href="doctors.html">Doctors</a></li><li><a href="services.html">Services</a></li></ul></div>
+            <div class="footer-col"><h4>Patient Care</h4><ul><li><a href="appointment.html">Book Appointment</a></li><li><a href="emergency.html">Emergency</a></li><li><a href="blog.html">Health Blog</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-col"><h4>Contact & Emergency</h4><ul><li><i class="fa-solid fa-phone-volume"></i> Emergency: <strong>+1 (800) 911-CARE</strong></li><li><i class="fa-solid fa-location-dot"></i> 250 Medical Ave, Health District</li><li><i class="fa-solid fa-phone"></i> +1 (800) 555-0199</li><li><i class="fa-solid fa-envelope"></i> info@elitecare-hospital.com</li></ul></div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="container">
+            <div class="hotline"><i class="fa-solid fa-phone-volume"></i> 24/7 Emergency Hotline: <strong>+1 (800) 911-CARE</strong></div>
+            <div class="bottom-links"><a href="emergency.html">Emergency</a><a href="blog.html">Health Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+            <div style="opacity:.82">&copy; 2026 Elite Care Hospital. All Rights Reserved.</div>
+        </div>
+    </div>
+</footer>
+<script>const t=document.getElementById('menuToggle'),n=document.getElementById('navLinks');t.onclick=()=>n.classList.toggle('active');</script>
+</body>
+</html>
